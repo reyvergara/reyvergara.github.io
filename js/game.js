@@ -114,6 +114,10 @@ var Unit = new Phaser.Class({
             global_damage += this.damage;
             console.log(this.type + ' It works? Should say dragon1 or dragon2');
         }
+        if(target instanceof Enemy){
+            global_damage += this.damage;
+            console.log(this.type + ' It works? Should say Mage or Warrior');
+        }
         
         this.scene.events.emit("Message", this.type + " attacks " + target.type + " for " + this.damage + " damage");
     },
@@ -123,7 +127,7 @@ var Unit = new Phaser.Class({
         if(this.type == "Dragon")
             console.log(this.type + " Took damage");
         if(this.type == "Dragon2")
-            console.log(this.type + "Took damage");
+            console.log(this.type + " Took damage");
         this.hp -= damage;
         if(this.hp <= 0) {
             this.hp = 0;
