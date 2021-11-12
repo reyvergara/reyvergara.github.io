@@ -110,7 +110,7 @@ var Unit = new Phaser.Class({
     },
     attack: function(target) {
         target.takeDamage(this.damage);
-        if(target instanceof Enemy){
+        if(target instanceof PlayerCharacter){
             global_damage += this.damage;
             console.log(this.type + ' It works? Should say dragon1 or dragon2');
         }
