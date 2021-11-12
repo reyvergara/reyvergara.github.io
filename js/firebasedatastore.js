@@ -1,5 +1,3 @@
-//import { initializeApp } from 'firebase.app';
-
 (function (window) {
     'use strict';
   
@@ -15,20 +13,15 @@
   
         async add(key, val) {
             console.log('firebase add  ');
-            const docRef = this.db.doc(`damage_global/${this.makeDocHash(20)}`);
+            const docRef = this.db.doc(`orders/${this.makeDocHash(20)}`);
             return docRef.set(val); 
         }
-        async get(email, cb)  { 
-            const docRef = this.db.collection(`damage_global`);
-            const snapshot = await docRef.where('emailAddress', '==', email).get();
-            return await snapshot.docs.map(e => e.data());
-        }
+        
         async getAll(cb)    { 
             const docRef = this.db.collection(`orders`);
             const snapshot = await docRef.get();
             return await snapshot.docs.map(e => e.data());
         }
- 
         makeDocHash(len) {
             var result           = '';
             var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

@@ -107,6 +107,7 @@ var Unit = new Phaser.Class({
         Phaser.GameObjects.Sprite.call(this, scene, x, y, texture, frame)
         this.type = type;
         this.maxHp = this.hp = hp;
+
         this.damage = damage; // default damage                
     },
     attack: function(target) {
