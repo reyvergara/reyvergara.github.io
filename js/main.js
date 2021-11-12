@@ -7,6 +7,6 @@
     
     var datastore = new FirebaseDataStore(FIREBASE_SERVER_URL);
     var global_damage_player = datastore.damage_global;
-    print(global_damage_player)
+    console.log(global_damage_player);
 
 })(window)
