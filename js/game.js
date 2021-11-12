@@ -94,6 +94,7 @@ var BattleScene = new Phaser.Class({
     }
 });
 
+var global_damage = 0;
 // base class for heroes and enemies
 var Unit = new Phaser.Class({
     Extends: Phaser.GameObjects.Sprite,
@@ -108,7 +109,8 @@ var Unit = new Phaser.Class({
     },
     attack: function(target) {
         target.takeDamage(this.damage);
-        console.log(this.damage);
+        global_damage += this.damage;
+        console.log(global_damage);
         this.scene.events.emit("Message", this.type + " attacks " + target.type + " for " + this.damage + " damage");
     },
     takeDamage: function(damage) {
