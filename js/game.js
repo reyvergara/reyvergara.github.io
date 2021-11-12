@@ -119,7 +119,7 @@ var Unit = new Phaser.Class({
     },
     takeDamage: function(damage) {
         // some comment to see update to server time
-        console.log(this.damage + "Took damage");
+        console.log(this.type + "Took damage");
         this.hp -= damage;
         if(this.hp <= 0) {
             this.hp = 0;
