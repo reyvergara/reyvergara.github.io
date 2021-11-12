@@ -110,7 +110,7 @@ var Unit = new Phaser.Class({
     },
     attack: function(target) {
         target.takeDamage(this.damage);
-        if(this.units[this.index] instanceof PlayerCharacter){
+        if(this.units[this.index] instanceof Enemy){
             global_damage += this.damage;
         }
         
