@@ -1,5 +1,6 @@
 
-var global_damage;
+var global_damage_player;
+var global_damage_enemy;
 var BootScene = new Phaser.Class({
 
     Extends: Phaser.Scene,
@@ -109,25 +110,35 @@ var Unit = new Phaser.Class({
         this.damage = damage; // default damage                
     },
     attack: function(target) {
+        // this function can identify who attacked with this and who is the target with target
         target.takeDamage(this.damage);
-        if(target instanceof PlayerCharacter){
+        /*if(target instanceof PlayerCharacter){
             global_damage += this.damage;
             console.log(this.type + ' It works? Should say dragon1 or dragon2');
         }
         if(target instanceof Enemy){
             global_damage += this.damage;
             console.log(this.type + ' It works? Should say Mage or Warrior');
-        }
+        }*/
         
         this.scene.events.emit("Message", this.type + " attacks " + target.type + " for " + this.damage + " damage");
     },
     takeDamage: function(damage) {
         // some comment to see update to server time
         // need to clear cache and close site to see changes
-        if(this.type == "Dragon")
+        // this function calculates the damage taken
+        if(this.type == "Dragon"){
             console.log(this.type + " Took damage");
-        if(this.type == "Dragon2")
+            global_damage_enemy += damage;
+        }
+        else if(this.type == "Dragon2"){
             console.log(this.type + " Took damage");
+            global_damage_enemy += damage;
+        }
+        else{
+            global_damage_player += damage;
+            console.log(global_damage_player);
+        }
         this.hp -= damage;
         if(this.hp <= 0) {
             this.hp = 0;
