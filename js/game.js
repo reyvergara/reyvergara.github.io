@@ -118,7 +118,7 @@ var Unit = new Phaser.Class({
         this.scene.events.emit("Message", this.type + " attacks " + target.type + " for " + this.damage + " damage");
     },
     takeDamage: function(damage) {
-        
+        // some comment to see update to server time
         console.log(this.damage + "Took damage");
         this.hp -= damage;
         if(this.hp <= 0) {
